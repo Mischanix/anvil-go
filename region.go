@@ -30,6 +30,9 @@ func (r *region) chunkAt(x, z int) (*Chunk, error) {
     return nil, errors.New("file for region is nil")
   }
   loc := r.h.Locations[chunkRegionIndex(x, z)]
+  if loc.offset() == 0 {
+		return nil, errors.New("chunk does not exist")
+	}
   if _, err := r.f.Seek(int64(loc.offset()), 0); err != nil {
     return nil, err
   }
