@@ -28,7 +28,7 @@ func compressor(compression int, w io.Writer) (io.WriteCloser, error) {
   if compression == gzipCompression {
     return gzip.NewWriter(w), nil
   } else if compression == zlibCompression {
-    return zlib.NewWriterLevel(w, 9)
+    return zlib.NewWriterLevel(w, 4)
   } else {
     return nil, errors.New("invalid compression type")
   }
