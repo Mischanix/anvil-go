@@ -10,10 +10,10 @@ func chunkRegionIndex(x, z int) int {
   x %= 32
   z %= 32
   if x < 0 {
-    x = 31 - -x
+    x = 32 - -x
   }
   if z < 0 {
-    z = 31 - -z
+    z = 32 - -z
   }
   return z*32 + x
 }
